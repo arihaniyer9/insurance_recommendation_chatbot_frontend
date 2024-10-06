@@ -30,7 +30,7 @@ const ChatInterface = () => {
           return;
         }
 
-        const response = await fetch('http://localhost:8000/api/chat/', {
+        const response = await fetch('https://insurance-recommedation-chatbot-backend.onrender.com/api/chat/', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const ChatInterface = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:8000/api/chat/', {
+      const response = await fetch('https://insurance-recommedation-chatbot-backend.onrender.com/api/chat/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ const ChatInterface = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:8000/api/chat/', {
+      const response = await fetch('https://insurance-recommedation-chatbot-backend.onrender.com/api/chat/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
