@@ -1,29 +1,3 @@
-// import React from 'react';
-// import Navbar from '../components/Navbar';
-// import Box from '@mui/material/Box';
-// import TextField from '@mui/material/TextField';
-// import Button from '@mui/material/Button';
-// import Grid from '@mui/material/Grid';
-// import Typography from '@mui/material/Typography';
-// import SampleImage1 from '../assets/SampleImage1.png';
-
-// const SignupPage = () => {
-//   return (
-//     <div>
-//       <Navbar />
-//       <Box component="form" sx={{ mt: 8, mx: 'auto', width: 300 }}>
-//         <TextField margin="normal" required fullWidth label="Email Address" autoFocus />
-//         <TextField margin="normal" required fullWidth label="Password" type="password" />
-//         <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-//           Sign Up
-//         </Button>
-//       </Box>
-//     </div>
-//   );
-// };
-
-// export default SignupPage;
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -32,6 +6,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import authService from '../services/authService';
+import Grid from '@mui/material/Grid';
+import image8 from '../assets/image8.png'; 
 
 const SignupPage = () => {
   const [username, setUsername] = useState('');
@@ -46,7 +22,7 @@ const SignupPage = () => {
       const response = await authService.register(username, email, password);
       console.log('Registration response:', response);
       if (response) {
-        navigate('/dashboard');
+        navigate('/login');
       } else {
         setError('Registration failed');
       }
@@ -58,6 +34,13 @@ const SignupPage = () => {
   return (
     <div>
       <Navbar />
+      <Grid container spacing={4} justifyContent="center" columnSpacing={{ xs: 1, sm: 2, md: 6 }} mt={3}>
+      <Grid item md={4}>
+      <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 5 }}>
+      <Box component="img" src= {image8} alt="Logo" sx={{ height: 450, marginRight: 400, borderRadius: '50%'}} />
+      </Box>
+      </Grid>
+      <Grid item xs={12} sm={8} md={8} component={Box} display="flex" flexDirection="column" alignItems="center" justifyContent="center">
       <Box component="form" sx={{ mt: 8, mx: 'auto', width: 300 }} onSubmit={handleSubmit}>
         <TextField
           margin="normal"
@@ -90,6 +73,8 @@ const SignupPage = () => {
           Sign Up
         </Button>
       </Box>
+      </Grid>
+      </Grid>
     </div>
   );
 };
