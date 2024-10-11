@@ -225,13 +225,17 @@ const ChatInterface = () => {
     return <div>Loading...</div>; 
   }
 
-  return (
+    return (
     <div>
       <Navbar />
       <Container>
         <Box sx={{ my: 4 }}>
-          <Typography variant="h4" sx={{ color: 'black', fontWeight: 'bold', letterSpacing: 1, fontFamily: 'Boogaloo' }} onClick={() => navigate('/')}>
-            AAROGYA Sahaay
+          <Typography
+            variant="h4"
+            sx={{ color: 'black', fontWeight: 'bold', letterSpacing: 1, fontFamily: 'Boogaloo' }}
+            onClick={() => navigate('/')}
+          >
+            AAROGYA SAHAAY
           </Typography>
           <Box sx={{ mb: 2 }}>
             <label>Choose Language: </label>
@@ -241,66 +245,76 @@ const ChatInterface = () => {
               <option value="kn-IN">Kannada</option>
             </select>
           </Box>
-          {!submitted && (
-            <Box>
-              <Typography variant="h6" gutterBottom>
-                Welcome! Do you want to get an insurance recommendation?
-              </Typography>
-              <Button variant="contained" color="primary" onClick={handleInitialMessage}>
-                Start Chat
-              </Button>
-            </Box>
-          )}
-          {submitted && (
-            <Paper elevation={3} sx={{ p: 2, height: '70vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              {/* Chat container */}
-              <Box sx={{ flexGrow: 1, overflowY: 'auto', mb: 2, paddingRight: 1 }}>
-                {messages.map((msg, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      display: 'flex',
-                      justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start',
-                      mb: 1
-                    }}
-                  >
-                    <Paper
-                      elevation={2}
-                      sx={{
-                        p: 1.5,
-                        maxWidth: '75%',
-                        backgroundColor: msg.sender === 'user' ? '#e0f7fa' : '#fce4ec',
-                        borderRadius: '16px',
-                        borderBottomRightRadius: msg.sender === 'user' ? '0' : '16px',
-                        borderBottomLeftRadius: msg.sender === 'user' ? '16px' : '0'
-                      }}
-                    >
-                      <Typography variant="body1" component="div">
-                        {msg.text}
-                      </Typography>
-                    </Paper>
+
+          {isAuthenticated ? (
+            <>
+              {!submitted && (
+                <Box>
+                  <Typography variant="h6" gutterBottom>
+                    Welcome! Do you want to get an insurance recommendation?
+                  </Typography>
+                  <Button variant="contained" color="primary" onClick={handleInitialMessage}>
+                    Start Chat
+                  </Button>
+                </Box>
+              )}
+
+              {submitted && (
+                <Paper elevation={3} sx={{ p: 2, height: '70vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  {/* Chat container */}
+                  <Box sx={{ flexGrow: 1, overflowY: 'auto', mb: 2, paddingRight: 1 }}>
+                    {messages.map((msg, index) => (
+                      <Box
+                        key={index}
+                        sx={{
+                          display: 'flex',
+                          justifyContent: msg.sender === 'user' ? 'flex-end' : 'flex-start',
+                          mb: 1
+                        }}
+                      >
+                        <Paper
+                          elevation={2}
+                          sx={{
+                            p: 1.5,
+                            maxWidth: '75%',
+                            backgroundColor: msg.sender === 'user' ? '#e0f7fa' : '#fce4ec',
+                            borderRadius: '16px',
+                            borderBottomRightRadius: msg.sender === 'user' ? '0' : '16px',
+                            borderBottomLeftRadius: msg.sender === 'user' ? '16px' : '0'
+                          }}
+                        >
+                          <Typography variant="body1" component="div">
+                            {msg.text}
+                          </Typography>
+                        </Paper>
+                      </Box>
+                    ))}
                   </Box>
-                ))}
-              </Box>
-              
-              {/* User prompt container */}
-              <Box component="form" onSubmit={handleMessageSubmit} sx={{ display: 'flex', gap: 1 }}>
-                <TextField
-                  variant="outlined"
-                  fullWidth
-                  placeholder="Type your message..."
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  sx={{ flexGrow: 1 }}
-                />
-                <Button type="submit" variant="contained" color="primary">
-                  Send
-                </Button>
-                <Button variant="contained" color="secondary" onClick={startSpeechRecognition}>
-                  🎤 Speak
-                </Button>
-              </Box>
-            </Paper>
+
+                  {/* User prompt container */}
+                  <Box component="form" onSubmit={handleMessageSubmit} sx={{ display: 'flex', gap: 1 }}>
+                    <TextField
+                      variant="outlined"
+                      fullWidth
+                      placeholder="Type your message..."
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      sx={{ flexGrow: 1 }}
+                    />
+                    <Button type="submit" variant="contained" color="primary">
+                      Send
+                    </Button>
+                    <Button variant="contained" color="secondary" onClick={startSpeechRecognition}>
+                      🎤 Speak
+                    </Button>
+                  </Box>
+                </Paper>
+              )}
+            </>
+          ) : (
+            <Alert severity="warning" sx={{ mt: 2 }}>
+              Please log in to access the chatbot. You will be redirected to the login page.
+            </Alert>
           )}
         </Box>
       </Container>
