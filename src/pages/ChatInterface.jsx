@@ -233,7 +233,6 @@ const ChatInterface = () => {
           <Typography
             variant="h4"
             sx={{ color: 'black', fontWeight: 'bold', letterSpacing: 1, fontFamily: 'Boogaloo' }}
-            onClick={() => navigate('/')}
           >
             AAROGYA SAHAAY
           </Typography>
