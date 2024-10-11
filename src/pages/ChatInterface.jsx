@@ -230,8 +230,8 @@ const ChatInterface = () => {
       <Navbar />
       <Container>
         <Box sx={{ my: 4 }}>
-          <Typography variant="h4" gutterBottom>
-          Aarogya Sahaay
+          <Typography variant="h4" sx={{ color: 'black', fontWeight: 'bold', letterSpacing: 1, fontFamily: 'Boogaloo' }} onClick={() => navigate('/')}>
+            AAROGYA Sahaay
           </Typography>
           <Box sx={{ mb: 2 }}>
             <label>Choose Language: </label>
