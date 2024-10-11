@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Box, Container, Typography, Alert } from '@mui/material';
 import authService from '../services/authService'; // Your auth service
+import Navbar from '../components/Navbar';
+
 
 const UserAccountPage = () => {
   const [userData, setUserData] = useState({ username: '', email: '' });
@@ -48,11 +50,12 @@ const UserAccountPage = () => {
   };
 
   return (
+    <div>
+      <Navbar />
     <Container maxWidth="sm" sx={{ mt: 4 }}>
       <Typography variant="h4" gutterBottom sx={{fontWeight:'bold'}}>
         Account Settings
       </Typography>
-
       <Box>
         <TextField
           label="Username"
@@ -102,6 +105,7 @@ const UserAccountPage = () => {
         </Button>
       </Box>
     </Container>
+      </div>
   );
 };
 
