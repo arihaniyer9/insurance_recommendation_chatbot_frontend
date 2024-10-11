@@ -151,6 +151,16 @@ const ChatInterface = () => {
 
   const handleInitialMessage = async () => {
     setSubmitted(true); // Show chat window
+    // Toggle TTS when clicking the button
+  const toggleTextToSpeech = () => {
+    if (isSpeaking) {
+      window.speechSynthesis.cancel(); // Stop TTS if already speaking
+      setIsSpeaking(false);
+    } else {
+      const lastMessage = messages.length > 0 ? messages[messages.length - 1].text : '';
+      if (lastMessage) textToSpeech(lastMessage); // Start TTS for the last message
+    }
+  };
 
     // Send the system message as the initial user input
     const input = "Start insurance recommendation";
@@ -305,6 +315,16 @@ const ChatInterface = () => {
                     </Button>
                     <Button variant="contained" color="secondary" onClick={startSpeechRecognition}>
                       🎤 Speak
+                    </Button>
+                  </Box>
+                  {/* TTS Toggle Button */}
+                  <Box sx={{ mt: 2 }}>
+                    <Button
+                      variant="contained"
+                      color="success"
+                      onClick={toggleTextToSpeech}
+                    >
+                      {isSpeaking ? 'Stop TTS' : 'Start TTS'}
                     </Button>
                   </Box>
                 </Paper>
