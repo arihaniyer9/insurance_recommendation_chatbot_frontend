@@ -22,6 +22,12 @@ const ChatInterface = () => {
 
   // Fetch chat history when the component mounts
   useEffect(() => {
+    const token = authService.getCurrentUser(); // Get the token from authService
+    if (token) {
+      setIsAuthenticated(true); // If token exists, set authenticated to true
+    } else {
+      setIsAuthenticated(false); // No token, user is not authenticated
+    }
     const fetchChatHistory = async () => {
       try {
         const token = authService.getCurrentUser(); // Get the access token
@@ -57,9 +63,10 @@ const ChatInterface = () => {
         setIsLoading(false); // Stop loading after attempting to fetch chat history
       }
     };
-
-    fetchChatHistory();  // Fetch chat history on component mount
-  }, []);  // Empty dependency array ensures this runs only once on mount
+  if (isAuthenticated){
+    fetchChatHistory();
+  }// Fetch chat history on component mount
+  }, [isAuthenticated]);  // Empty dependency array ensures this runs only once on mount
 
   const handleMessageSubmit = (e) => {
     e.preventDefault();
