@@ -148,11 +148,7 @@ const ChatInterface = () => {
     };
     recognition.start();
   };
-
-  const handleInitialMessage = async () => {
-    setSubmitted(true); // Show chat window
-    // Toggle TTS when clicking the button
-  const toggleTextToSpeech = () => {
+const toggleTextToSpeech = () => {
     if (isSpeaking) {
       window.speechSynthesis.cancel(); // Stop TTS if already speaking
       setIsSpeaking(false);
@@ -161,6 +157,10 @@ const ChatInterface = () => {
       if (lastMessage) textToSpeech(lastMessage); // Start TTS for the last message
     }
   };
+
+  const handleInitialMessage = async () => {
+    setSubmitted(true); // Show chat window
+    // Toggle TTS when clicking the button
 
     // Send the system message as the initial user input
     const input = "Start insurance recommendation";
