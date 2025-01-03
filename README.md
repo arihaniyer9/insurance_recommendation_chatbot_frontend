@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Aarogya Vardaan - Insurance Recommendation Chatbot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+**Aarogya Vardaan** is a multilingual web application designed to assist household helpers in Bangalore, India, in finding suitable health insurance plans and educating them about the importance and benefits of health insurance. 
 
-## Available Scripts
+The chatbot interacts with users in their preferred language, understands their needs, and recommends the best insurance options tailored to their requirements. This initiative aims to empower individuals with essential knowledge and access to health insurance.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
+- **Multilingual Support**: Communicate in multiple languages for better accessibility.
+- **Personalized Insurance Recommendations**: Recommends plans based on individual needs and preferences.
+- **Educational Content**: Provides insights into the importance, benefits, and process of obtaining health insurance.
+- **User-Friendly Web App**: Simple and intuitive interface designed for ease of use.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
+- **Frontend**: ReactJS
+- **Backend**: Django
+- **API**: OpenAI API
+- **Machine Learning**: Insurance recommendation model for personalized suggestions
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation and Setup
 
-### `npm run build`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/Aarogya-Vardaan.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Aarogya-Vardaan
+   ```
+3. Install dependencies for the frontend:
+   ```bash
+   cd frontend
+   npm install
+   ```
+4. Install dependencies for the backend:
+   ```bash
+   cd ../backend
+   pip install -r requirements.txt
+   ```
+5. Set up the OpenAI API key in the `.env` file in the backend folder:
+   ```plaintext
+   OPENAI_API_KEY=your_api_key
+   ```
+6. Start the services:
+   - Frontend:
+     ```bash
+     cd frontend
+     npm start
+     ```
+   - Backend:
+     ```bash
+     cd ../backend
+     python manage.py runserver
+     ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshots
+![Home Page](insurance-recommendation-chatbot-ss/main-page.png)
+![Home Page](insurance-recommendation-chatbot-ss/main-page-2.png)
+![Home Page](insurance-recommendation-chatbot-ss/main-page-3.png)
+*The home page of Aarogya Vardaan*
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Chatbot Interaction](path/to/chatbot-screenshot.png)
+*Chatbot interaction for insurance recommendations*
 
-### `npm run eject`
+![Chatbot Page](insurance-recommendation-chatbot-ss/chatbot-page.png)
+*Chatbot Page*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Educational Content](insurance-recommendation-chatbot-ss/explore-page.png)
+*Insurance educational section*
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contributing
+Contributions are welcome! If you have ideas to enhance the project or want to fix issues, feel free to open a pull request.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
