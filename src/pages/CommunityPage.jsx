@@ -43,70 +43,70 @@ const CommunityPage = () => {
         "name": "Rajawadi Hospital",
         "address": "Rajawadi Road, Ghatkopar East, Mumbai",
         "phone": "+91 98765 43210",
-        "image": "image30",
+        "image": image30,
         "mapLink": "https://www.google.com/maps/search/Rajawadi+Hospital+Ghatkopar+East+Mumbai"
     },
     {
         "name": "Paramount General Hospital & I C C U",
         "address": "Andheri Kurla Road, Andheri East, Mumbai",
         "phone": "+91 98234 56789",
-        "image": "image31",
+        "image": image31,
         "mapLink": "https://www.google.com/maps/search/Paramount+General+Hospital+Andheri+East+Mumbai"
     },
     {
         "name": "Sant Muktabai Municipal Hospital",
         "address": "R.B. Kadam Road, Ghatkopar West, Mumbai",
         "phone": "+91 97654 32109",
-        "image": "image32",
+        "image": image32,
         "mapLink": "https://www.google.com/maps/search/Sant+Muktabai+Municipal+Hospital+Ghatkopar+West+Mumbai"
     },
     {
         "name": "Matoshree Ramabai Thakre Maternity Home",
         "address": "Nagar Road, Ghatkopar West, Mumbai",
         "phone": "+91 98456 78901",
-        "image": "image33",
+        "image": image33,
         "mapLink": "https://www.google.com/maps/search/Matoshree+Ramabai+Thakre+Maternity+Home+Ghatkopar+West+Mumbai"
     },
     {
         "name": "Bmc Hospital Sangharsh Nagar",
         "address": "Turbhe Road, Powai, Mumbai",
         "phone": "+91 98123 45678",
-        "image": "image34",
+        "image": image34,
         "mapLink": "https://www.google.com/maps/search/Bmc+Hospital+Sangharsh+Nagar+Powai+Mumbai"
     },
     {
         "name": "Mohili Village Municipal Hospital",
         "address": "Madhuradas Vasanji Road, Sakinaka, Mumbai",
         "phone": "+91 98276 54321",
-        "image": "image35",
+        "image": image35,
         "mapLink": "https://www.google.com/maps/search/Mohili+Village+Municipal+Hospital+Sakinaka+Mumbai"
     },
     {
         "name": "Bmc Chandivali Hospital & Maternity",
         "address": "Chandivali, Andheri East, Mumbai",
         "phone": "+91 98345 67812",
-        "image": "image36",
+        "image": image36,
         "mapLink": "https://www.google.com/maps/search/Bmc+Chandivali+Hospital+Andheri+East+Mumbai"
     },
     {
         "name": "Vishwakarma Hospital",
         "address": "Ambedkar Nagar, Ghatkopar East, Mumbai",
         "phone": "+91 97890 12345",
-        "image": "image37",
+        "image": image37,
         "mapLink": "https://www.google.com/maps/search/Vishwakarma+Hospital+Ghatkopar+East+Mumbai"
     },
     {
         "name": "Noor Hospital",
         "address": "Market Road, Govandi West, Mumbai",
         "phone": "+91 98567 43210",
-        "image": "image38",
+        "image": image38,
         "mapLink": "https://www.google.com/maps/search/Noor+Hospital+Govandi+West+Mumbai"
     },
     {
         "name": "Aastha Hospital",
         "address": "Vikhroli East, Mumbai",
         "phone": "+91 98987 65432",
-        "image": "image39",
+        "image": image39,
         "mapLink": "https://www.google.com/maps/search/Aastha+Hospital+Vikhroli+East+Mumbai"
     },
         {
