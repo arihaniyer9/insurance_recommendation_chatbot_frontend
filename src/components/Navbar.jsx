@@ -11,6 +11,7 @@ import MedicalServicesRoundedIcon from '@mui/icons-material/MedicalServicesRound
 import HealthAndSafetyRoundedIcon from '@mui/icons-material/HealthAndSafetyRounded';
 import SettingsRounded from '@mui/icons-material/SettingsOutlined';
 import LoginRounded from '@mui/icons-material/LoginOutlined';
+import VolunteerActivismRounded from '@mui/icons-material/VolunteerActivismRounded';
 import Box from '@mui/material/Box';
 import authService from '../services/authService';
 import image8 from '../assets/image8.png';
@@ -73,6 +74,21 @@ const Navbar = () => {
         <IconButton style={{ color: 'black', fontSize: 'large', mx: 3 }} onClick={() => navigate('/acct')}>
           <SettingsRounded fontSize="large" />
         </IconButton>
+
+        <Button
+          sx={{
+            color: 'black',
+            textTransform: 'none',
+            fontFamily: 'Boogaloo',
+            display: 'flex',
+            alignItems: 'center',
+            mx: 2
+          }}
+          onClick={() => navigate('/crowd')}
+          startIcon={<VolunteerActivismRounded fontSize="large" />}
+        >
+          Crowdfunding
+        </Button>
 
         {/* Corrected Google Translate Button */}
         <div id="google_translate_element" style={{ marginRight: '20px' }}></div>
