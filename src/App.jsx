@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard';
 import ChatInterface from './pages/ChatInterface';
 import InsuranceInfoPage from './pages/InsuranceInfoPage';
 import UserAccountPage from './pages/UserAccountPage';
-
+import CrowdFunding from './pages/CrowdFunding';
 function App() {
   return (
     <Router>
@@ -19,6 +19,7 @@ function App() {
         <Route path="/chat" element={<ChatInterface/>} />
         <Route path="/info" element={<InsuranceInfoPage/>} />
         <Route path="/acct" element={<UserAccountPage/>} />
+        <Route path="/crowd" element={<CrowdFunding/>} />
       </Routes>
     </Router>
   );
