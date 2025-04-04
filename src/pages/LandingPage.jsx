@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import CardComponent from '../components/Card';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Unstable_Grid2'; // Using the experimental Grid for layout control
 import Container from '@mui/material/Container';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import SampleImage1 from '../assets/SampleImage1.png';
@@ -14,7 +14,14 @@ import SampleImage2 from '../assets/SampleImage1.png';
 const LandingPage = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
+  // Load Google Translate when the component mounts
+  // useEffect(() => {
+  //   const googleTranslateScript = document.createElement('script');
+  //   googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  //   googleTranslateScript.async = true;
+  //   document.body.appendChild(googleTranslateScript);
+  // }, []);
+useEffect(() => {
     // Load Tally embed script
     const script = document.createElement('script');
     script.src = 'https://tally.so/widgets/embed.js';
@@ -31,7 +38,6 @@ const LandingPage = () => {
       document.body.removeChild(script);
     };
   }, []);
-
   const cards = [
     { image: SampleImage1 },
     { image: SampleImage2 },
@@ -41,6 +47,9 @@ const LandingPage = () => {
   return (
     <div>
       <Navbar />
+
+      {/* Google Translate Button
+      <div id="google_translate_element" style={{ float: 'right', margin: '20px' }}></div> */}
 
       {/* First Section - Cards and Headline */}
       <Box sx={{ p: 2 }}>
@@ -125,19 +134,7 @@ const LandingPage = () => {
               200+ caregivers made aware
             </Typography>
           </Grid>
-
-          <Grid item xs={12} md={4}>
-            <Box
-              component="img"
-              src={SampleImage2}
-              alt="Sample"
-              sx={{ width: '100%', height: 'auto' }}
-            />
-          </Grid>
-        </Grid>
-      </Container>
-
-      {/* Tally Form Section */}
+                {/* Tally Form Section */}
       <Container maxWidth="lg" sx={{ mt: 6, mb: 6 }}>
         <Typography variant="h4" gutterBottom align="center">
           Get in Touch
@@ -160,6 +157,21 @@ const LandingPage = () => {
             style={{ border: 'none' }}
           ></iframe>
         </Box>
+      </Container>
+
+      {/* Third Section - Arrow Icon and Testimonials */}
+      <Container maxWidth="lg" sx={{ mt: 6, mb: 6, textAlign: 'center' }}>
+        {/* Downward Arrow Icon */}
+        <ArrowDownwardIcon sx={{ fontSize: '3rem', mb: 4 }} />
+          <Grid item xs={12} md={4}>
+            <Box
+              component="img"
+              src={SampleImage2}
+              alt="Sample"
+              sx={{ width: '100%', height: 'auto' }}
+            />
+          </Grid>
+        </Grid>
       </Container>
 
       {/* Third Section - Arrow Icon and Testimonials */}
@@ -215,6 +227,7 @@ const LandingPage = () => {
         </Grid>
       </Container>
 
+      {/* Footer */}
       <Footer />
     </div>
   );
