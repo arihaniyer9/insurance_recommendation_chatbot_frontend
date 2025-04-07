@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import CardComponent from '../components/Card';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Unstable_Grid2'; // Using the experimental Grid for layout control
 import Container from '@mui/material/Container';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import SampleImage1 from '../assets/SampleImage1.png';
@@ -14,23 +14,13 @@ import SampleImage2 from '../assets/SampleImage1.png';
 const LandingPage = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Load Tally embed script
-    const script = document.createElement('script');
-    script.src = 'https://tally.so/widgets/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Initialize Tally embeds when component mounts
-    if (window.Tally) {
-      window.Tally.loadEmbeds();
-    }
-
-    return () => {
-      // Clean up script when component unmounts
-      document.body.removeChild(script);
-    };
-  }, []);
+  // Load Google Translate when the component mounts
+  // useEffect(() => {
+  //   const googleTranslateScript = document.createElement('script');
+  //   googleTranslateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  //   googleTranslateScript.async = true;
+  //   document.body.appendChild(googleTranslateScript);
+  // }, []);
 
   const cards = [
     { image: SampleImage1 },
@@ -41,6 +31,9 @@ const LandingPage = () => {
   return (
     <div>
       <Navbar />
+
+      {/* Google Translate Button
+      <div id="google_translate_element" style={{ float: 'right', margin: '20px' }}></div> */}
 
       {/* First Section - Cards and Headline */}
       <Box sx={{ p: 2 }}>
@@ -135,30 +128,18 @@ const LandingPage = () => {
             />
           </Grid>
         </Grid>
-      </Container>
-
-      {/* Tally Form Section */}
-      <Container maxWidth="lg" sx={{ mt: 6, mb: 6 }}>
-        <Typography variant="h4" gutterBottom align="center">
-          Get in Touch
-        </Typography>
-        <Box sx={{ 
-          width: '100%',
-          my: 4,
-          borderRadius: 2,
-          overflow: 'hidden'
-        }}>
-          <iframe 
-            data-tally-src="https://tally.so/embed/wvz5aQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-            loading="lazy" 
-            width="100%" 
-            height="500" 
-            frameBorder="0" 
-            marginHeight="0" 
-            marginWidth="0" 
+         {/* Tally Form Embed Section */}
+        <Box sx={{ mt: 6 }}>
+          <iframe
+            data-tally-src="https://tally.so/embed/wvz5aQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="378"
+            frameBorder="0"
+            marginHeight="0"
+            marginWidth="0"
             title="Aarogya Vardaan"
-            style={{ border: 'none' }}
-          />
+          ></iframe>
         </Box>
       </Container>
 
@@ -215,6 +196,7 @@ const LandingPage = () => {
         </Grid>
       </Container>
 
+      {/* Footer */}
       <Footer />
     </div>
   );
