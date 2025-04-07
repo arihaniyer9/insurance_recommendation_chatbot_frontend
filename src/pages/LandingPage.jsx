@@ -128,19 +128,6 @@ const LandingPage = () => {
             />
           </Grid>
         </Grid>
-         {/* Tally Form Embed Section */}
-        <Box sx={{ mt: 6 }}>
-          <iframe
-            data-tally-src="https://tally.so/embed/wvz5aQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
-            width="100%"
-            height="378"
-            frameBorder="0"
-            marginHeight="0"
-            marginWidth="0"
-            title="Aarogya Vardaan"
-          ></iframe>
-        </Box>
       </Container>
 
       {/* Third Section - Arrow Icon and Testimonials */}
