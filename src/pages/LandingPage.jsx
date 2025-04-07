@@ -34,6 +34,25 @@ const LandingPage = () => {
   ];
  
 const textArray = ['400M dont have insurance.', 'What can we do?'];
+useEffect(() => {
+  const scriptId = 'tally-script';
+  if (!document.getElementById(scriptId)) {
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = 'https://tally.so/widgets/embed.js';
+    script.onload = () => {
+      if (typeof Tally !== 'undefined') {
+        Tally.loadEmbeds();
+      }
+    };
+    document.body.appendChild(script);
+  } else {
+    if (typeof Tally !== 'undefined') {
+      Tally.loadEmbeds();
+    }
+  }
+}, []);
+
   return (
     <div>
       <Navbar />
@@ -203,6 +222,26 @@ const textArray = ['400M dont have insurance.', 'What can we do?'];
           </Grid>
         </Container>
       </Box>
+{/* Tally Form Section */}
+<Box sx={{ py: 10 }}>
+  <Container maxWidth="md">
+    <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
+      Get Involved – Fill Out the Form
+    </Typography>
+    <div style={{ width: '100%', height: 'auto' }}>
+      <iframe
+        data-tally-src="https://tally.so/embed/wvz5aQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="378"
+        frameBorder="0"
+        marginHeight="0"
+        marginWidth="0"
+        title="Aarogya Vardaan"
+      ></iframe>
+    </div>
+  </Container>
+</Box>
 
       {/* Collaborations Section */}
       <Box sx={{ py: 10, backgroundColor: '#f4f4f4' }}>
