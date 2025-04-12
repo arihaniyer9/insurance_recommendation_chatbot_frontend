@@ -37,7 +37,7 @@ const Navbar = () => {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: 'en',
-          includedLanguages: 'hi,kn,ta,te,ml,mr,gu',
+          includedLanguages: 'hi,kn,ta,te,ml,mr,gu,en',
         },
         'google_translate_element'
       );
