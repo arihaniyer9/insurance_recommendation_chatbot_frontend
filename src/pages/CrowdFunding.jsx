@@ -1,4 +1,5 @@
 import React from 'react';
+/* global Tally */
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -12,7 +13,24 @@ import SampleImage2 from '../assets/SampleImage1.png';
 
 const CrowdFunding = () => {
   const navigate = useNavigate();
-
+  useEffect(() => {
+    const scriptId = 'tally-script';
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = 'https://tally.so/widgets/embed.js';
+      script.onload = () => {
+        if (typeof Tally !== 'undefined') {
+          Tally.loadEmbeds();
+        }
+      };
+      document.body.appendChild(script);
+    } else {
+      if (typeof Tally !== 'undefined') {
+        Tally.loadEmbeds();
+      }
+    }
+  }, []);
   return (
     <div>
       <Navbar />
@@ -25,14 +43,33 @@ const CrowdFunding = () => {
         <Typography variant="h6" sx={{ maxWidth: '800px', margin: '0 auto' }}>
           Aarogya Vardaan is dedicated to ensuring that house helps and low-income workers have access to essential health insurance. Through this crowdfunding initiative, we aim to provide financial security and healthcare support to those who need it most.
         </Typography>
-        <Button
+        {/* <Button
           variant="contained"
           color="primary"
           sx={{ mt: 4 }}
           onClick={() => window.open('https://forms.gle/your-google-form-link', '_blank')}
         >
           Donate Now
-        </Button>
+        </Button> */}
+        <Box sx={{ py: 10 }}>
+          <Container maxWidth="md">
+            <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
+              Get Involved – Donate Now
+            </Typography>
+            <div style={{ width: '100%', height: 'auto' }}>
+              <iframe
+                data-tally-src="https://tally.so/embed/wvz5aQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                loading="lazy"
+                width="100%"
+                height="378"
+                frameBorder="0"
+                marginHeight="0"
+                marginWidth="0"
+                title="Aarogya Vardaan"
+              ></iframe>
+            </div>
+          </Container>
+        </Box>
       </Container>
 
       {/* Mission & Vision */}
