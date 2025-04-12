@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 /* global Tally */
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -7,9 +7,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import SampleImage1 from '../assets/SampleImage1.png';
-import SampleImage2 from '../assets/SampleImage1.png';
 
 const CrowdFunding = () => {
   const navigate = useNavigate();
@@ -31,6 +28,7 @@ const CrowdFunding = () => {
       }
     }
   }, []);
+
   return (
     <div>
       <Navbar />
@@ -43,14 +41,6 @@ const CrowdFunding = () => {
         <Typography variant="h6" sx={{ maxWidth: '800px', margin: '0 auto' }}>
           Aarogya Vardaan is dedicated to ensuring that house helps and low-income workers have access to essential health insurance. Through this crowdfunding initiative, we aim to provide financial security and healthcare support to those who need it most.
         </Typography>
-        {/* <Button
-          variant="contained"
-          color="primary"
-          sx={{ mt: 4 }}
-          onClick={() => window.open('https://forms.gle/your-google-form-link', '_blank')}
-        >
-          Donate Now
-        </Button> */}
         <Box sx={{ py: 10 }}>
           <Container maxWidth="md">
             <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
@@ -123,13 +113,39 @@ const CrowdFunding = () => {
         </Typography>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={4}>
-            <Typography variant="h6">Aarogya Vardaan Team</Typography>
+            <Typography variant="h6" fontWeight="bold">Aarogya Vardaan Team</Typography>
+            <Typography>Riva Mehta</Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Typography variant="h6">Rotary SOBO Representatives</Typography>
+            <Typography variant="h6" fontWeight="bold">Rotary SOBO Representatives</Typography>
+            <Typography>Ms. Niharika Malik</Typography>
+            <Typography>Mr. Rajeev Goenka</Typography>
+            <Typography>Ms. Meenaa Sampat</Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Typography variant="h6">Volunteers and Supporters</Typography>
+            <Typography variant="h6" fontWeight="bold">Volunteers and Supporters</Typography>
+            {[
+              'Samaira Shah',
+              'Dhannvi Gada',
+              'Arianna Mehta',
+              'Mishkaa Parekh',
+              'Evaan Parekh',
+              'Rudra Agarwal',
+              'Shruthi Jairam',
+              'Angel Rodrigues',
+              'Riddhi Sood',
+              'Avanish Iyer',
+              'Dhruan Lapsia',
+              'Rishabh Goyal',
+              'Riva Mehta',
+              'Sohana Kapoor',
+              'Siddharth Ghosh',
+              'Kavya Mahadevan',
+              'Sharanya Shankar',
+              'Vedika Rau Velamuri',
+            ].map((name, index) => (
+              <Typography key={index}>{name}</Typography>
+            ))}
           </Grid>
         </Grid>
       </Container>
@@ -140,10 +156,10 @@ const CrowdFunding = () => {
           Fundraising Progress
         </Typography>
         <Box sx={{ height: 20, backgroundColor: '#ccc', borderRadius: 10, overflow: 'hidden', position: 'relative' }}>
-          <Box sx={{ width: '60%', backgroundColor: '#4caf50', height: '100%' }}></Box>
+          <Box sx={{ width: '0%', backgroundColor: '#4caf50', height: '100%' }}></Box>
         </Box>
         <Typography variant="h6" sx={{ mt: 2 }}>
-          ₹3,00,000 raised of ₹5,00,000 goal
+          ₹0 raised of ₹5,00,000 goal
         </Typography>
       </Container>
 
