@@ -349,6 +349,7 @@
 // };
 
 // export default ChatInterface;
+
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Box from '@mui/material/Box';
@@ -359,7 +360,6 @@ import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 import authService from '../services/authService';
 import Alert from '@mui/material/Alert';
-import CheckIcon from '@mui/icons-material/Check';
 import { useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import Card from '@mui/material/Card';
@@ -417,7 +417,138 @@ const ChatInterface = () => {
     }
   };
 
-  // ... (keep all your existing handler functions like handleMessageSubmit, getInsuranceRecommendation, etc.)
+  const handleMessageSubmit = (e) => {
+    e.preventDefault();
+    if (!input) return;
+    getInsuranceRecommendation(input);
+    setInput('');
+  };
+
+  const getInsuranceRecommendation = async (input) => {
+    try {
+      const token = authService.getCurrentUser();
+      if (!token) {
+        console.error('No token found');
+        return;
+      }
+
+      const response = await fetch('https://insurance-recommedation-chatbot-backend.onrender.com/api/chat/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          message: input,
+          chat_history: messages.map(msg => ({
+            role: msg.sender === 'user' ? 'user' : 'assistant',
+            content: msg.text
+          }))
+        })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        const botMessage = { text: data.response, sender: 'bot' };
+        setMessages([...messages, { text: input, sender: 'user' }, botMessage]);
+        textToSpeech(botMessage.text);
+      } else {
+        console.error('Error sending message:', data.error);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const textToSpeech = (text) => {
+    const speechSynthesis = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(text);
+    
+    if (isSpeaking) {
+      speechSynthesis.cancel();
+      setIsSpeaking(false);
+      return;
+    }
+
+    if (language === 'kn-IN') {
+      utterance.lang = 'kn-IN';
+    } else if (language === 'hi-IN') {
+      utterance.lang = 'hi-IN';
+    } else {
+      utterance.lang = 'en-US';
+    }
+    
+    utterance.rate = 0.9;
+    speechSynthesis.speak(utterance);
+
+    utterance.onstart = () => setIsSpeaking(true);
+    utterance.onend = () => setIsSpeaking(false);
+  };
+
+  const startSpeechRecognition = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      console.error('Speech recognition not supported in this browser');
+      return;
+    }
+    
+    const recognition = new SpeechRecognition();
+    recognition.lang = language;
+    recognition.onstart = () => console.log('Voice recognition started...');
+    recognition.onspeechend = () => recognition.stop();
+    recognition.onerror = (err) => console.error('Speech recognition error:', err);
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setInput(transcript);
+    };
+    recognition.start();
+  };
+
+  const toggleTextToSpeech = () => {
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+    } else {
+      const lastMessage = messages.length > 0 ? messages[messages.length - 1].text : '';
+      if (lastMessage) textToSpeech(lastMessage);
+    }
+  };
+
+  const handleInitialMessage = async () => {
+    setSubmitted(true);
+    const input = "Start insurance recommendation";
+    
+    try {
+      const token = authService.getCurrentUser();
+      if (!token) {
+        console.error('No token found');
+        return;
+      }
+
+      const response = await fetch('https://insurance-recommedation-chatbot-backend.onrender.com/api/chat/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          message: input,
+          chat_history: []
+        })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        const botMessage = { text: data.response, sender: 'bot' };
+        setMessages([{ text: data.response, sender: 'bot' }]);
+        textToSpeech(botMessage.text);
+      } else {
+        console.error('Error starting chat:', data.error);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -617,7 +748,6 @@ const ChatInterface = () => {
               justifyContent: 'space-between',
               borderRadius: 3
             }}>
-              {/* Chat messages */}
               <Box sx={{ 
                 flexGrow: 1, 
                 overflowY: 'auto', 
@@ -655,7 +785,6 @@ const ChatInterface = () => {
                 ))}
               </Box>
 
-              {/* Input area */}
               <Box component="form" onSubmit={handleMessageSubmit} sx={{ 
                 display: 'flex', 
                 gap: 1,
@@ -702,7 +831,6 @@ const ChatInterface = () => {
                 </Button>
               </Box>
               
-              {/* TTS button */}
               <Box sx={{ 
                 display: 'flex', 
                 justifyContent: 'center',
