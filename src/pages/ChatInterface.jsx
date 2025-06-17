@@ -566,13 +566,7 @@ const ChatInterface = () => {
       <div>
         <Navbar />
         <Container maxWidth="md" sx={{ mt: 6 }}>
-          <Card sx={{ borderRadius: 3, boxShadow: 3, overflow: 'hidden' }}>
-            <CardMedia
-              component="img"
-              height="200"
-              image="https://source.unsplash.com/random/800x400/?health,insurance"
-              alt="Health Insurance"
-            />
+           <Card sx={{ borderRadius: 3, boxShadow: 3 }}>
             <CardContent sx={{ p: 4 }}>
               <Typography 
                 variant="h4" 
