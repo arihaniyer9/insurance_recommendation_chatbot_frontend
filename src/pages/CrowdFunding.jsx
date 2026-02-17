@@ -76,7 +76,35 @@ const CrowdFunding = () => {
     For many staff members, this was their first opportunity to engage directly with these questions
     and break the myth of insurance being inaccessible.
   </Typography>
-
+{/* Awareness to Access Images */}
+<Box sx={{ my: 4 }}>
+  <Grid container spacing={3}>
+    <Grid xs={12} md={6}>
+      <Box
+        component="img"
+        src={image40}
+        alt="Insurance awareness session"
+        sx={{
+          width: '100%',
+          borderRadius: 2,
+          boxShadow: 2,
+        }}
+      />
+    </Grid>
+    <Grid xs={12} md={6}>
+      <Box
+        component="img"
+        src={image41}
+        alt="Staff engagement during awareness program"
+        sx={{
+          width: '100%',
+          borderRadius: 2,
+          boxShadow: 2,
+        }}
+      />
+    </Grid>
+  </Grid>
+</Box>
   <Typography variant="h5" sx={{ mt: 4 }} gutterBottom>
     Building a Sustainable Model
   </Typography>
@@ -93,7 +121,35 @@ const CrowdFunding = () => {
     of South Bombay. With their support, a student-led crowdfunding campaign was launched at
     Kanakia International School, involving students from Grades 8 to 12.
   </Typography>
-
+{/* Sustainable Model Images */}
+<Box sx={{ my: 4 }}>
+  <Grid container spacing={3}>
+    <Grid xs={12} md={6}>
+      <Box
+        component="img"
+        src={image42}
+        alt="Crowdfunding initiative at school"
+        sx={{
+          width: '100%',
+          borderRadius: 2,
+          boxShadow: 2,
+        }}
+      />
+    </Grid>
+    <Grid xs={12} md={6}>
+      <Box
+        component="img"
+        src={image43}
+        alt="Students participating in fundraising"
+        sx={{
+          width: '100%',
+          borderRadius: 2,
+          boxShadow: 2,
+        }}
+      />
+    </Grid>
+  </Grid>
+</Box>
   {/* Impact Highlight Box */}
   <Box
     sx={{
