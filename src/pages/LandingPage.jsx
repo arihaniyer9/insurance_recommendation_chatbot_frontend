@@ -22,6 +22,7 @@ import image11 from '../assets/image11.png';
 import image12 from '../assets/image12.png';
 import image40 from '../assets/image40.png';
 import TypingAnimator from 'react-typing-animator';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
   const cards = [
@@ -36,6 +37,7 @@ const LandingPage = () => {
   ];
  
 const textArray = ['400M dont have insurance.', 'What can we do?'];
+const navigate = useNavigate();
 useEffect(() => {
   const scriptId = 'tally-script';
   if (!document.getElementById(scriptId)) {
@@ -109,6 +111,52 @@ useEffect(() => {
         </div>
       </Grid>
     </Grid>
+          {/* Kanakia School Feature */}
+<Grid container justifyContent="center" sx={{ mt: 6 }}>
+  <Grid item xs={12} sm={8} md={6}>
+    <Box
+      sx={{
+        border: '5px solid black',
+        borderRadius: '8px',
+        overflow: 'hidden',
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+        textAlign: 'center',
+        backgroundColor: 'white',
+      }}
+    >
+      <Box
+        component="img"
+        src={image40}
+        alt="Building Health Insurance Access at Kanakia International School"
+        sx={{
+          width: '100%',
+          display: 'block',
+        }}
+      />
+
+      <Box sx={{ p: 3 }}>
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+          sx={{ mb: 1 }}
+        >
+          Building Health Insurance Access at Kanakia International School
+        </Typography>
+
+        <Typography
+          sx={{
+            cursor: 'pointer',
+            textDecoration: 'underline',
+            fontWeight: 'bold',
+          }}
+          onClick={() => navigate('/crowd')}
+        >
+          Click to learn more
+        </Typography>
+      </Box>
+    </Box>
+  </Grid>
+</Grid>
         </Container>
       
 
