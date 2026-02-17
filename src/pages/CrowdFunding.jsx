@@ -7,6 +7,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
+import image40 from '../assets/image40.png';
+import image41 from '../assets/image41.png';
+import image42 from '../assets/image42.png';
+import image43 from '../assets/image43.png';
 
 const CrowdFunding = () => {
   const navigate = useNavigate();
