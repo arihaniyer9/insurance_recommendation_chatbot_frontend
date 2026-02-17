@@ -17,6 +17,105 @@ const CrowdfundingPage = () => {
     <div>
       <Navbar />
 
+      {/* Featured Impact Story */}
+<Container maxWidth="md" sx={{ py: 6 }}>
+  <Typography variant="h3" gutterBottom>
+    Building Health Insurance Access at Kanakia International School
+  </Typography>
+
+  <Typography
+    variant="subtitle1"
+    color="text.secondary"
+    sx={{ mb: 4 }}
+  >
+    A student-led initiative creating long-term healthcare security for school support staff
+  </Typography>
+
+  <Typography paragraph>
+    Most schools have people who are everywhere and nowhere at once. They open gates before the first bell rings,
+    clean classrooms after everyone leaves, and keep hallways running without drawing attention to themselves.
+    Their work is constant, but their access to long-term security often is not.
+  </Typography>
+
+  <Typography paragraph>
+    Healthcare, especially, tends to sit outside the boundaries of what institutions formally provide.
+    They are employed in formal institutions, yet remain outside most employer-provided healthcare systems.
+    In Mumbai, this gap became the focus of a sustained effort at Kanakia International School.
+  </Typography>
+
+  <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>
+    How It Started
+  </Typography>
+
+  <Typography paragraph>
+    In January 2025, we began with an insurance awareness session for the school’s support staff.
+    The session focused on how medical insurance works in practice, what it covers, and why having
+    coverage matters even in the absence of immediate medical needs.
+  </Typography>
+
+  <Typography paragraph>
+    For many staff members, this was their first opportunity to engage directly with these questions
+    and break the myth of insurance being inaccessible.
+  </Typography>
+
+  <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>
+    From Awareness to Action
+  </Typography>
+
+  <Typography paragraph>
+    Following the session, we approached the school authorities with a proposal to formally partner
+    with Aarogya Vardaan and facilitate low-cost health insurance for the staff.
+    The aim was simple but ambitious: to create structured, affordable health insurance access
+    within the school ecosystem itself.
+  </Typography>
+
+  <Typography paragraph>
+    To ensure financial transparency and institutional guidance, we partnered with the Rotary Club
+    of South Bombay. With their support, a student-led crowdfunding campaign was launched at
+    Kanakia International School, involving students from Grades 8 to 12.
+  </Typography>
+
+  <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>
+    Measurable Impact
+  </Typography>
+
+  <Box
+    sx={{
+      backgroundColor: '#f5f7fa',
+      p: 3,
+      borderRadius: 2,
+      my: 3
+    }}
+  >
+    <Typography><strong>₹85,000</strong> raised through crowdfunding</Typography>
+    <Typography><strong>11</strong> support staff members insured</Typography>
+    <Typography>
+      Insurance provided via Aarogya Vardaan’s partner <strong>Clinikk</strong>
+    </Typography>
+    <Typography>
+      Enrolment prioritised older staff members
+    </Typography>
+  </Box>
+
+  <Typography paragraph>
+    These funds were channelled directly into medical insurance premiums, keeping the focus
+    on long-term protection rather than short-term relief.
+  </Typography>
+
+  <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>
+    What Comes Next
+  </Typography>
+
+  <Typography paragraph>
+    This effort is ongoing. Our goal is to extend insurance coverage to all 40 support staff members
+    at the school and to continue enrolling staff as funds are raised.
+  </Typography>
+
+  <Typography paragraph>
+    What began as a conversation has become infrastructure. And it is still growing.
+  </Typography>
+</Container>
+      
       {/* Hero Section */}
       <Container maxWidth="lg" sx={{ textAlign: 'center', py: 6 }}>
         <Typography variant="h2" gutterBottom>
