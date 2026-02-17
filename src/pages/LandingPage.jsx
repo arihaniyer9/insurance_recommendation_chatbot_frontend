@@ -20,6 +20,7 @@ import image9 from '../assets/image9.png';
 import image10 from '../assets/image10.png';
 import image11 from '../assets/image11.png';
 import image12 from '../assets/image12.png';
+import image40 from '../assets/image40.png';
 import TypingAnimator from 'react-typing-animator';
 
 const LandingPage = () => {
